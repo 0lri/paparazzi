@@ -1,0 +1,7 @@
+#
+# source with $ . ENV
+#
+export PAPARAZZI_HOME=`pwd`;
+export PAPARAZZI_SRC=`pwd`;
+
+PATH=$PATH:$PAPARAZZI_SRC/bin

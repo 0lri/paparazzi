@@ -39,11 +39,19 @@ ifeq ($(TARGET),ap)
       endif
     endif
     ifeq ($(BOARD),twog)
-	  include $(CFG_SHARED)/actuators_4017.makefile
+      include $(CFG_SHARED)/actuators_4017.makefile
     endif
 
     ifeq ($(BOARD),lisa_l)
       include $(CFG_SHARED)/actuators_direct.makefile
+    endif
+
+    ifeq ($(BOARD),hb)
+      include $(CFG_SHARED)/actuators_4017.makefile
+    endif
+
+    ifeq ($(BOARD),hbmini)
+      include $(CFG_SHARED)/actuators_4017.makefile
     endif
 
   else
@@ -51,6 +59,3 @@ ifeq ($(TARGET),ap)
   endif
 
 endif
-
-
-
