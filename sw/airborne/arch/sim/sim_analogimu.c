@@ -6,9 +6,8 @@
 
 
 #include <inttypes.h>
-#include "infrared.h"
-#include "airframe.h"
-
+#include "subsystems/sensors/infrared.h"
+#include "generated/airframe.h"
 #include <caml/mlvalues.h>
 
 float imu_roll_neutral = RadOfDeg(IMU_ROLL_NEUTRAL_DEFAULT);

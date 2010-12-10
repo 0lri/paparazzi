@@ -1,7 +1,7 @@
 #
 # hb_mini_0.1.makefile
 #
-# http://paparazzi.enac.fr/wiki/Tiny_v2
+# http://paparazzi.enac.fr/wiki/HB_MINI
 #
 
 ARCH=lpc21
@@ -27,16 +27,16 @@ GPS_LED     = 2
 MODEM_UART_NR	= 1
 MODEM_BAUD 	= B57600
 
-ADC_IR_TOP = ADC_0
-ADC_IR1 = ADC_1
-ADC_IR2 = ADC_2
-ADC_IR_NB_SAMPLES = 16
-ADC_GYRO_ROLL = ADC_3
-ADC_GYRO_PITCH = ADC_4
-ADC_GYRO_NB_SAMPLES = 16
 
-ADC_GENERIC_NB_SAMPLES = 16
+#olri ADC_IR_TOP = ADC_0
+#olri ADC_IR1 = ADC_1
+#olri ADC_IR2 = ADC_2
+#olri ADC_IR_NB_SAMPLES = 16
+#olri ADC_GYRO_ROLL = ADC_3
+#olri ADC_GYRO_PITCH = ADC_4
+#olri ADC_GYRO_NB_SAMPLES = 16
+
+#olri ADC_GENERIC_NB_SAMPLES = 16
 
 # All targets on the TINY board run on the same processor achitecture
 $(TARGET).ARCHDIR = $(ARCH)
-

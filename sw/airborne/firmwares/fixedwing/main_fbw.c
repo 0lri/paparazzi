@@ -40,8 +40,8 @@
 #include "firmwares/fixedwing/actuators.h"
 #include "subsystems/electrical.h"
 #include "subsystems/radio_control.h"
-#include "fbw_downlink.h"
 #include "firmwares/fixedwing/autopilot.h"
+#include "fbw_downlink.h"
 #include "paparazzi.h"
 
 #ifdef MCU_SPI_LINK
@@ -49,7 +49,7 @@
 #endif
 
 #ifdef MILLIAMP_PER_PERCENT
-#  error "deprecated MILLIAMP_PER_PERCENT --> Please use MILLIAMP_AT_FULL_THROTTLE"
+#error "deprecated MILLIAMP_PER_PERCENT --> Please use MILLIAMP_AT_FULL_THROTTLE"
 #endif
 
 
@@ -110,14 +110,7 @@ void event_task_fbw( void) {
 
 #ifdef INTER_MCU
 #ifdef MCU_SPI_LINK
-  if (spi_message_received) {
-    /* Got a message on SPI. */
-    spi_message_received = FALSE;
-
-    /* Sets link_mcu_received */
-    /* Sets inter_mcu_received_ap if checksum is ok */
     link_mcu_event_task();
-  }
 #endif /* MCU_SPI_LINK */
 
 
@@ -176,8 +169,8 @@ void periodic_task_fbw( void ) {
   fbw_downlink_periodic_task();
 #endif
 
-  if (!_10Hz) { 
-    electrical_periodic();  
+  if (!_10Hz) {
+    electrical_periodic();
   }
 
 #ifdef ACTUATORS

@@ -1,5 +1,7 @@
 /*
- * Copyright (C) 2008-2010 The Paparazzi Team
+ * $Id: analogimu.h $
+ *
+ * Copyright (C) 2010 Oliver Riesener, Christoph Niemann
  *
  * This file is part of paparazzi.
  *
@@ -17,13 +19,28 @@
  * along with paparazzi; see the file COPYING.  If not, write to
  * the Free Software Foundation, 59 Temple Place - Suite 330,
  * Boston, MA 02111-1307, USA.
+ *
  */
 
-#include "subsystems/ahrs.h"
-#include "subsystems/imu.h"
+/** \file analogimu.h
+ *  \brief Analog IMU Interface
+ *
+ */
 
-struct Ahrs ahrs;
-struct AhrsFloat ahrs_float;
+#ifndef _ANALOGIMU_H_
+#define _ANALOGIMU_H_
 
-float ahrs_mag_offset;
+#include <inttypes.h>
 
+extern float imu_roll_neutral;
+extern float imu_pitch_neutral;
+
+//functions
+void analog_imu_init( void );
+void analog_imu_update( void );
+void analog_imu_downlink( void );
+void analogconversion( void );
+void estimator_update_state_analog_imu( void );
+void analog_imu_offset_set( void );
+
+#endif // _ANALOGIMU_H_

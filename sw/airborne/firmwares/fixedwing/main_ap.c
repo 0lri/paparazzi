@@ -66,7 +66,7 @@
 
 
 #ifdef ANALOG_IMU
-#include "subsystems/analogimu/analogimu.h"
+#include "subsystems/ahrs/dcm/analogimu.h"
 #endif
 
 #if ! defined CATASTROPHIC_BAT_LEVEL && defined LOW_BATTERY
@@ -435,7 +435,7 @@ void periodic_task_ap( void ) {
 #error "Only 20 and 60 allowed for CONTROL_RATE"
 #endif
 
-#ifdef ANALOG_IMU 
+#ifdef ANALOG_IMU
   if (!_20Hz) {
       estimator_update_state_analog_imu();
       analog_imu_downlink();
@@ -619,11 +619,7 @@ void event_task_ap( void ) {
 #endif /** DATALINK */
 
 #ifdef MCU_SPI_LINK
-  if (spi_message_received) {
-    /* Got a message on SPI. */
-    spi_message_received = FALSE;
     link_mcu_event_task();
-  }
 #endif
 
   if (inter_mcu_received_fbw) {
