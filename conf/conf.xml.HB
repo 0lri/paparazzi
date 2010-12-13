@@ -1,5 +1,25 @@
 <conf>
   <aircraft
+   name="BOOZ2_A1"
+   ac_id="150"
+   airframe="airframes/Poine/booz2_a1.xml"
+   radio="radios/cockpitSX.xml"
+   telemetry="telemetry/telemetry_booz2.xml"
+   flight_plan="flight_plans/dummy.xml"
+   settings="settings/settings_booz2.xml settings/settings_booz2_ahrs_cmpl.xml"
+   gui_color="white"
+  />
+  <aircraft
+   name="BOOZ2_A2"
+   ac_id="151"
+   airframe="airframes/Poine/booz2_a2.xml"
+   radio="radios/cockpitSX.xml"
+   telemetry="telemetry/telemetry_booz2.xml"
+   flight_plan="flight_plans/dummy.xml"
+   settings="settings/settings_booz2.xml settings/settings_booz2_fms_ts.xml"
+   gui_color="white"
+  />
+  <aircraft
    name="Busca1"
    ac_id="202"
    airframe="airframes/HB/fixed-wing/HB_Busca1.xml"
@@ -100,6 +120,26 @@
    gui_color="white"
   />
   <aircraft
+   name="HB_MINI_FIXEDWING"
+   ac_id="46"
+   airframe="airframes/HB/fixed-wing/hb_mini.xml"
+   radio="radios/HB/mx12-HB_MINI.xml"
+   telemetry="telemetry/default.xml"
+   flight_plan="flight_plans/HB/hochschule.xml"
+   settings="settings/tuning_analog_imu.xml"
+   gui_color="white"
+  />
+  <aircraft
+   name="HB_TINY_RAZOR"
+   ac_id="47"
+   airframe="airframes/HB/fixed-wing/hb_tiny_razor.xml"
+   radio="radios/HB/mx12-HB_MINI.xml"
+   telemetry="telemetry/default.xml"
+   flight_plan="flight_plans/HB/hochschule.xml"
+   settings="settings/tuning_analog_imu.xml"
+   gui_color="white"
+  />
+  <aircraft
    name="Lerche"
    ac_id="205"
    airframe="airframes/HB/fixed-wing/HB_Lerche.xml"
@@ -112,7 +152,7 @@
   <aircraft
    name="MJ5"
    ac_id="5"
-   airframe="airframes/microjet5.xml"
+   airframe="airframes/microjet_example.xml"
    radio="radios/cockpitMM.xml"
    telemetry="telemetry/default.xml"
    flight_plan="flight_plans/muret_demo_1.xml"
@@ -132,42 +172,11 @@
   <aircraft
    name="TWOG_CHNI"
    ac_id="84"
-   airframe="airframes/HB/fixed-wing/CHNI_Twog.xml"
+   airframe="airframes/example_twog_analogimu.xml"
    radio="radios/HB/cockpitCHNI.xml"
    telemetry="telemetry/default.xml"
    flight_plan="flight_plans/HB/stieglitz_chni.xml"
    settings="settings/tuning.xml"
    gui_color="#ffffffffffff"
-  />
-  <aircraft
-   name="HB_MINI_FIXEDWING"
-   ac_id="46"
-   airframe="airframes/HB/fixed-wing/hb_mini.xml"
-   radio="radios/HB/mx12-HB_MINI.xml"
-   telemetry="telemetry/default.xml"
-   flight_plan="flight_plans/HB/hochschule.xml"
-   settings="settings/tuning_analog_imu.xml"
-   gui_color="white"
-  />
-<!--   settings="settings/HB/tuning_hsb_2.xml" -->
-   <aircraft
-   name="BOOZ2_A1"
-   ac_id="150"
-   airframe="airframes/Poine/booz2_a1.xml"
-   radio="radios/cockpitSX.xml"
-   telemetry="telemetry/telemetry_booz2.xml"
-   flight_plan="flight_plans/dummy.xml"
-   settings="settings/settings_booz2.xml settings/settings_booz2_ahrs_cmpl.xml"
-   gui_color="white"
-  />
-   <aircraft
-   name="BOOZ2_A2"
-   ac_id="151"
-   airframe="airframes/Poine/booz2_a2.xml"
-   radio="radios/cockpitSX.xml"
-   telemetry="telemetry/telemetry_booz2.xml"
-   flight_plan="flight_plans/dummy.xml"
-   settings="settings/settings_booz2.xml settings/settings_booz2_fms_ts.xml"
-   gui_color="white"
   />
 </conf>

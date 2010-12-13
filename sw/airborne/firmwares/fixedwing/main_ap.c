@@ -443,6 +443,22 @@ void periodic_task_ap( void ) {
 #ifdef USE_ANALOG_IMU
   if (!_20Hz) {
     imu_periodic();
+    // fake
+    float ff = 0.4711;
+    float time = GET_CUR_TIME_FLOAT();
+    time *= 1000;//secs to msecs
+
+    DOWNLINK_SEND_HB_FILTER( DefaultChannel,&time,
+			     &imu.accel.x,&imu.accel.y,&imu.accel.z,
+			     &imu.gyro.p,&imu.gyro.q,&imu.gyro.r,
+			     &ff, /* hmc_mag_h */
+			     &imu.mag.x,&imu.mag.y,&imu.mag.z,
+			     &ff, &ff, &ff, &ff, &ff );
+    /*
+			     &angle[ANG_ROLL],&angle[ANG_PITCH],&angle[ANG_YAW],
+			     &estimator_ir_phi, &estimator_ir_theta );
+    */
+    
   }
 #endif // USE_ANALOG_IMU
 

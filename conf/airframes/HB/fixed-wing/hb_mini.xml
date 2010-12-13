@@ -90,7 +90,6 @@
   <section name="adc" prefix="ADC_CHANNEL_">
     <define name="GYRO_NB_SAMPLES" value="16" />
     <define name="ACCEL_NB_SAMPLES" value="32" />
-
   </section>
 
   <!-- settings for the Analog IMU -->
