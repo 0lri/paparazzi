@@ -33,7 +33,7 @@
     <set command="TILT" value="@TILT"/>
   </rc_commands>
 
-  <command_laws>  
+  <command_laws>
     <set servo="THROTTLE" value="@THROTTLE"/>
     <set servo="AILERON" value="@ROLL"/>
     <set servo="ELEVATOR" value="@PITCH"/>
@@ -133,7 +133,7 @@
     <define name="PITCH_PGAIN" value="-9000."/>
     <define name="PITCH_DGAIN" value="1.5"/>
     <define name="ELEVATOR_OF_ROLL" value="1250"/>
-    
+
   </section>
 
   <section name="NAV">
@@ -153,11 +153,11 @@
   </section>
 
   <section name="FAILSAFE" prefix="FAILSAFE_">
-	<define name="DELAY_WITHOUT_GPS" value="1" unit="s"/>
-    	<define name="DEFAULT_THROTTLE" value="0.3" unit="%"/>
-    	<define name="DEFAULT_ROLL" value="0.3" unit="rad"/>
-    	<define name="DEFAULT_PITCH" value="0.5" unit="rad"/>
-	<define name="HOME_RADIUS" value="100" unit="m"/>
+    <define name="DELAY_WITHOUT_GPS" value="1" unit="s"/>
+    <define name="DEFAULT_THROTTLE" value="0.3" unit="%"/>
+    <define name="DEFAULT_ROLL" value="0.3" unit="rad"/>
+    <define name="DEFAULT_PITCH" value="0.5" unit="rad"/>
+    <define name="HOME_RADIUS" value="100" unit="m"/>
   </section>
 
   <firmware name="fixedwing">
@@ -183,9 +183,9 @@
   <makefile location="after">
       ap.CFLAGS += -DANALOGIMU_ROTATED
       ap.CFLAGS += -DANALOGIMU_ZERO_AVERAGE
-     
+
       ap.CFLAGS += -DGPS_USE_LATLONG
-      
+
       //ap.CFLAGS += -DWIND_INFO -DSTRONG_WIND
 
       //sim.CFLAGS += -DWIND_INFO -DSTRONG_WIND

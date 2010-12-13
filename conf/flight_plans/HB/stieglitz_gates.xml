@@ -12,7 +12,7 @@
       <while cond="TRUE">
         <go approaching_time="0." wp="WP1"/>
         <go approaching_time="0." wp="WP2"/>
-        <go approaching_time="0." wp="WP3"/>	
+        <go approaching_time="0." wp="WP3"/>
         <while cond="30 > block_time"/>
       </while>
     </block>

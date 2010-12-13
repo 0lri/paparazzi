@@ -32,7 +32,7 @@
     <block name="circle_target">
       <while cond="TRUE">
          <circle radius="15" wp="Target"/>
-      	 <while cond="10 > block_time"/>	
+         <while cond="10 > block_time"/>
       </while>
     </block>
     <block name="circle_home">

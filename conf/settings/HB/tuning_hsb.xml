@@ -15,7 +15,7 @@
       <dl_setting MAX="2" MIN="0" STEP="1" VAR="pprz_mode" module="autopilot"/>
 <!--olri 20100717
 olri 20100717 -->
-      <dl_setting MAX="1" MIN="0" STEP="1" VAR="alt_baro_enabled" module="baro_MP3H6115" /> 
+      <dl_setting MAX="1" MIN="0" STEP="1" VAR="alt_baro_enabled" module="baro_MP3H6115" />
 <!--olri 20100830
       <dl_setting MAX="1" MIN="0" STEP="1" VAR="alt_baro_enabled" module="baro_scp" />
 -->

@@ -22,21 +22,21 @@
       <dl_setting MAX="2" MIN="0" STEP="1" VAR="gps_reset" module="gps_ubx" handler="Reset" shortname="GPS reset"/>
 
       <dl_setting MAX="200" MIN="-200" STEP="10" VAR="nav_radius" module="nav" handler="SetNavRadius">
-        <strip_button icon="circle-right.png" name="Circle right" value="1"/>        
-        <strip_button icon="circle-left.png" name="Circle left" value="-1"/>        
+        <strip_button icon="circle-right.png" name="Circle right" value="1"/>
+        <strip_button icon="circle-left.png" name="Circle left" value="-1"/>
 	<key_press key="greater" value="1"/>
 	<key_press key="less" value="-1"/>
       </dl_setting>
     </dl_settings>
 
     <dl_settings NAME="control">
-      
+
       <dl_settings NAME="razor">
         <dl_setting MAX="45" MIN="-45" STEP="0.1" VAR="razor_roll_neutral" shortname="roll neutral" module="razor_imu" param="RAZOR_ROLL_NEUTRAL_DEFAULT" unit="rad" alt_unit="deg" alt_unit_coef="57.3"/>
         <dl_setting MAX="45" MIN="-45" STEP="0.1" VAR="razor_pitch_neutral" shortname="pitch neutral" module="razor_imu" param="RAZOR_PITCH_NEUTRAL_DEFAULT" unit="rad" alt_unit="deg" alt_unit_coef="57.3"/>
-	  
+
       </dl_settings>
-      
+
       <dl_settings NAME="attitude">
         <dl_setting MAX="25000" MIN="000" STEP="250" VAR="h_ctl_roll_pgain" shortname="roll_pgain" module="fw_h_ctl"/>
         <dl_setting MAX="1" MIN="0" STEP="0.05" VAR="h_ctl_roll_max_setpoint" shortname="max_roll" param="H_CTL_ROLL_MAX_SETPOINT"/>
@@ -61,7 +61,7 @@
         <strip_button name="Loiter" value="0.1"/>
         <strip_button name="Cruise" value="0"/>
       </dl_setting>
-       
+
 
         <dl_setting MAX="0.00" MIN="-0.05" STEP="0.005" VAR="v_ctl_auto_throttle_pgain" shortname="throttle_pgain" param="V_CTL_AUTO_THROTTLE_PGAIN"/>
         <dl_setting MAX="1" MIN="0.0" STEP="0.05" VAR="v_ctl_auto_throttle_igain" shortname="throttle_igain" param="V_CTL_AUTO_THROTTLE_IGAIN"/>

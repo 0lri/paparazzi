@@ -33,7 +33,7 @@
 
   <command_laws>
     <let var="aileron"  value="@ROLL  * AILEVON_AILERON_RATE"/>
-    <let var="elevator" value="@PITCH * AILEVON_ELEVATOR_RATE"/>  
+    <let var="elevator" value="@PITCH * AILEVON_ELEVATOR_RATE"/>
     <set servo="THROTTLE"      value="@THROTTLE"/>
     <set servo="HATCH"      value="@HATCH"/>
     <set servo="AILEVON_LEFT"  value="$elevator + $aileron"/>
@@ -49,14 +49,14 @@
     <define name="IR1" value="ADC_0"/>
     <define name="IR_TOP" value="ADC_1"/>
     <define name="IR2" value="ADC_2"/>
-    <define name="IR_NB_SAMPLES" value="16"/>   
+    <define name="IR_NB_SAMPLES" value="16"/>
     <define name="PRESSURE_OFF" value="ADC_3"/>
     <define name="PRESSURE" value="ADC_4"/>
     <define name="PRESSURE_NB_SAMPLES" value="16"/>
     <define name="PRESSURE_OFF_NB_SAMPLES" value="16"/>
     <define name="GYRO_ROLL" value="ADC_5"/>
     <define name="GYRO_TEMP" value="ADC_6"/>
-    <define name="GYRO_NB_SAMPLES" value="16"/> 
+    <define name="GYRO_NB_SAMPLES" value="16"/>
   </section>
 
   <section name="INFRARED" prefix="IR_">
@@ -83,8 +83,8 @@
  <section name="GYRO" prefix="GYRO_">
     <define name="ADC_ROLL_COEF" value="1"/>
     <define name="ADC_ROLL_NEUTRAL" value="500"/>
-    <define name="ADC_TEMP_NEUTRAL" value="476"/>   
-    <define name="ADC_TEMP_SLOPE" value="0"/>   
+    <define name="ADC_TEMP_NEUTRAL" value="476"/>
+    <define name="ADC_TEMP_SLOPE" value="0"/>
     <define name="ROLL_SCALE" value="0.44"/>
     <define name="ROLL_DIRECTION" value="1"/>
   </section>
@@ -96,7 +96,7 @@
     <define name="LOW_BAT_LEVEL" value="10.0" unit="V"/>
     <define name="MAX_BAT_LEVEL" value="12.6" unit="V"/>
   </section>
- 
+
   <section name="MISC">
 <!-- adjusted nom. speed for course calc | old: 15. -->
     <define name="NOMINAL_AIRSPEED" value="15." unit="m/s"/>
@@ -120,7 +120,7 @@
     <define name="PITCH_DGAIN" value="1.5"/>
     <!-- old: 1250 -->
     <define name="ELEVATOR_OF_ROLL" value="1750"/>
-    
+
     <!--  roll rate loop -->
     <define name="ROLL_RATE_MODE_DEFAULT" value="1"/>
     <define name="ROLL_RATE_SETPOINT_PGAIN" value="-5." unit="rad/s/rad"/>
@@ -191,13 +191,13 @@
   </section>
 
   <section name="FAILSAFE" prefix="FAILSAFE_">
-	<define name="DELAY_WITHOUT_GPS" value="1" unit="s"/>
-    	<define name="DEFAULT_THROTTLE" value="0.3" unit="%"/>
-    	<define name="DEFAULT_ROLL" value="0.3" unit="rad"/>
-    	<define name="DEFAULT_PITCH" value="0.5" unit="rad"/>
-	<define name="HOME_RADIUS" value="100" unit="m"/>
+  <define name="DELAY_WITHOUT_GPS" value="1" unit="s"/>
+    <define name="DEFAULT_THROTTLE" value="0.3" unit="%"/>
+    <define name="DEFAULT_ROLL" value="0.3" unit="rad"/>
+    <define name="DEFAULT_PITCH" value="0.5" unit="rad"/>
+  <define name="HOME_RADIUS" value="100" unit="m"/>
   </section>
- 
+
 <!--
   <section name="DATALINK" prefix="DATALINK_">
     <define name="DEVICE_TYPE" value="XBEE"/>
@@ -238,7 +238,7 @@ ap.srcs += downlink.c $(SRC_ARCH)/uart_hw.c datalink.c pprz_transport.c latlong.
 
 
 ap.CFLAGS += -DINTER_MCU
-ap.srcs += inter_mcu.c 
+ap.srcs += inter_mcu.c
 
 ap.CFLAGS += -DADC -DUSE_ADC_0 -DUSE_ADC_1 -DUSE_ADC_2
 ap.srcs += $(SRC_ARCH)/adc_hw.c
