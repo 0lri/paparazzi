@@ -444,7 +444,7 @@ void periodic_task_ap( void ) {
   if (!_20Hz) {
     imu_periodic();
     // fake
-    float ff = 0.4711;
+    float ff = 47.11;
     float time = GET_CUR_TIME_FLOAT();
     time *= 1000;//secs to msecs
 
