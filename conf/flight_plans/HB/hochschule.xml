@@ -1,6 +1,6 @@
 <!DOCTYPE flight_plan SYSTEM "../flight_plan.dtd">
 
-<flight_plan alt="50" ground_alt="9" lat0="53.071519" lon0="8.793271" max_dist_from_home="200" name="Bremen" qfu="270" security_height="10">
+<flight_plan alt="50" ground_alt="9" lat0="53.071519" lon0="8.793271" max_dist_from_home="200" name="Hochschule Bremen" qfu="270" security_height="10">
   <waypoints>
     <waypoint name="HOME" x="-1.6" y="-58.7"/>
     <waypoint name="WP1" x="60.9" y="-139.0"/>

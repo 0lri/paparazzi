@@ -15,6 +15,7 @@
 *.depend
 
 *.aux
+\#*\#
 
 /var
 /dox
