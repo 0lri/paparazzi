@@ -3,6 +3,7 @@
 
 ifeq ($(ARCH), lpc21)
 ap.CFLAGS += -DUSE_ANALOG_IMU
+ap.CFLAGS += -DAHRS_ALIGNER_LED=$(AHRS_ALIGNER_LED)
 
 ap.srcs += $(SRC_SUBSYSTEMS)/ahrs.c
 ap.srcs += $(SRC_SUBSYSTEMS)/ahrs/ahrs_aligner.c

@@ -41,30 +41,30 @@
       <define name="GYRO_Q_CHAN" value="1"/>
       <define name="GYRO_R_CHAN" value="2"/>
 -->
-    <define name="GYRO_P_NEUTRAL" value="512"/>
-    <define name="GYRO_Q_NEUTRAL" value="512"/>
-    <define name="GYRO_R_NEUTRAL" value="512"/>
+    <define name="GYRO_P_NEUTRAL" value="512-138"/>
+    <define name="GYRO_Q_NEUTRAL" value="512-143"/>
+    <define name="GYRO_R_NEUTRAL" value="512-131"/>
 
-    <define name="GYRO_P_SENS" value="0.017" integer="16"/>
-    <define name="GYRO_Q_SENS" value="0.017" integer="16"/>
-    <define name="GYRO_R_SENS" value="0.017" integer="16"/>
+    <define name="GYRO_P_SENS" value="1.0" integer="16"/>
+    <define name="GYRO_Q_SENS" value="1.0" integer="16"/>
+    <define name="GYRO_R_SENS" value="1.0" integer="16"/>
 
     <define name="GYRO_P_SIGN" value="1" />
     <define name="GYRO_Q_SIGN" value="1" />
     <define name="GYRO_R_SIGN" value="-1" />
-
 <!--
       <define name="ACCEL_X_CHAN" value="3"/>
       <define name="ACCEL_Y_CHAN" value="4"/>
       <define name="ACCEL_Z_CHAN" value="5"/>
 -->
-    <define name="ACCEL_X_SENS" value="0.1" integer="16"/>
-    <define name="ACCEL_Y_SENS" value="0.1" integer="16"/>
-    <define name="ACCEL_Z_SENS" value="0.1" integer="16"/>
 
-    <define name="ACCEL_X_NEUTRAL" value="512"/>
-    <define name="ACCEL_Y_NEUTRAL" value="512"/>
-    <define name="ACCEL_Z_NEUTRAL" value="512"/>
+    <define name="ACCEL_X_SENS" value="1.0" integer="16"/>
+    <define name="ACCEL_Y_SENS" value="1.0" integer="16"/>
+    <define name="ACCEL_Z_SENS" value="1.0" integer="16"/>
+
+    <define name="ACCEL_X_NEUTRAL" value="512-12"/>
+    <define name="ACCEL_Y_NEUTRAL" value="512-5"/>
+    <define name="ACCEL_Z_NEUTRAL" value="512+7"/>
 
     <define name="ACCEL_X_SIGN" value="1"/>
     <define name="ACCEL_Y_SIGN" value="-1"/>
@@ -218,10 +218,11 @@
       <param name="ACCEL_Z" value="ADC_7"/>
     </subsystem>
 
-    <subsystem name="attitude"  type="dcm"/>
+    <subsystem name="attitude"		type="dcm"/>
     <subsystem name="gps" 		type="ublox_lea5h"/>
     <subsystem name="navigation"/>
   </firmware>
+
   <!-- Carefull: add the location after!! -->
   <makefile location="after">
       ap.CFLAGS += -DANALOGIMU_ROTATED
