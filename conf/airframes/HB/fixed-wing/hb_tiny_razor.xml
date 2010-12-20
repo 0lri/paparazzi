@@ -1,7 +1,8 @@
 <!DOCTYPE airframe SYSTEM "../../airframe.dtd">
 
 <!-- Laboratory testing fixed-wing
-     HB TINY13 RAZOR Board (http://paparazzi.enac.fr/wiki/Tiny)
+     TINY13 (http://paparazzi.enac.fr/wiki/Tiny)
+     RAZOR Board  (http://paparazzi.enac.fr/wiki/Inertial_Measurement_Units#SparkFun_Razor_6DOF_IMU)
      analog imu, float dcm
      wi.232 Radiomodems
 -->
@@ -36,14 +37,9 @@
   </command_laws>
 
   <section name="IMU" prefix="IMU_">
-<!--
-      <define name="GYRO_P_CHAN" value="0"/>
-      <define name="GYRO_Q_CHAN" value="1"/>
-      <define name="GYRO_R_CHAN" value="2"/>
--->
-    <define name="GYRO_P_NEUTRAL" value="512-138"/>
-    <define name="GYRO_Q_NEUTRAL" value="512-143"/>
-    <define name="GYRO_R_NEUTRAL" value="512-131"/>
+    <define name="GYRO_P_NEUTRAL" value="(381-7)"/> <!-- SoA = 1.23V + 3.33mV * [+/-][0-300]grad/s -->
+    <define name="GYRO_Q_NEUTRAL" value="(381-12)"/>
+    <define name="GYRO_R_NEUTRAL" value="(381)"/>
 
     <define name="GYRO_P_SENS" value="1.0" integer="16"/>
     <define name="GYRO_Q_SENS" value="1.0" integer="16"/>
@@ -52,11 +48,6 @@
     <define name="GYRO_P_SIGN" value="1" />
     <define name="GYRO_Q_SIGN" value="1" />
     <define name="GYRO_R_SIGN" value="-1" />
-<!--
-      <define name="ACCEL_X_CHAN" value="3"/>
-      <define name="ACCEL_Y_CHAN" value="4"/>
-      <define name="ACCEL_Z_CHAN" value="5"/>
--->
 
     <define name="ACCEL_X_SENS" value="1.0" integer="16"/>
     <define name="ACCEL_Y_SENS" value="1.0" integer="16"/>
@@ -225,8 +216,8 @@
 
   <!-- Carefull: add the location after!! -->
   <makefile location="after">
-      ap.CFLAGS += -DANALOGIMU_ROTATED
-      ap.CFLAGS += -DANALOGIMU_ZERO_AVERAGE
+<!--      ap.CFLAGS += -DANALOGIMU_ROTATED
+      ap.CFLAGS += -DANALOGIMU_ZERO_AVERAGE -->
   </makefile>
 
 </airframe>

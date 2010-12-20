@@ -656,10 +656,10 @@ static inline void on_gyro_accel_event( void ) {
   ImuScaleAccel(imu);
   if (ahrs.status == AHRS_UNINIT) {
     ahrs_aligner_run();
-    if (ahrs_aligner.status == AHRS_ALIGNER_LOCKED)
+    if (ahrs_aligner.status == AHRS_ALIGNER_LOCKED) {
       ahrs_align();
-  }
-  else {
+    }
+  } else {
     ahrs_propagate();
     ahrs_update_accel();
     ahrs_update_fw_estimator();
