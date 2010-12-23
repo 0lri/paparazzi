@@ -55,7 +55,7 @@ void ahrs_update_fw_estimator(void);
 
 #define GRAVITY 9.81f
 
-#define OUTPUTMODE 2
+#define OUTPUTMODE 0
 #warning OUTPUTMODE 0
 // Mode 0 = DCM integration without Ki gyro bias
 // Mode 1 = DCM integration with Kp and Ki (with drift correction)

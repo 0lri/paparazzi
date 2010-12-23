@@ -146,6 +146,7 @@ void ahrs_align(void)
 /**
  * copy imu.gyro into gyro_float
  * compute imu_rate without bias
+ * scale values to [rad/s]
  * Update Matrix
  * Normalize
  */
@@ -160,9 +161,9 @@ void ahrs_propagate(void)
   RATES_DIFF(ahrs_float.imu_rate, gyro_float, ahrs_impl.gyro_bias);
 
   // scale adc raw to [rad/s] // olri
-  ahrs_float.imu_rate.p /= 61.35;
-  ahrs_float.imu_rate.q /= 57.96;
-  ahrs_float.imu_rate.r /= 60.10;
+  ahrs_float.imu_rate.p /= 61.35f;
+  ahrs_float.imu_rate.q /= 57.96f;
+  ahrs_float.imu_rate.r /= 60.10f;
 
   /* Update Matrix */
   Matrix_update();
@@ -397,37 +398,38 @@ void Matrix_update(void)
   //adding Integrator term
   Vector_Add(&Omega_Vector[0], &Omega[0], &Omega_P[0]);
 
-#if OUTPUTMODE==1    // With corrected data (drift correction)
-  Update_Matrix[0][0]=0;
+#if OUTPUTMODE==1
+  // With corrected data (drift correction)
+  Update_Matrix[0][0]=0f;
   Update_Matrix[0][1]=-G_Dt*Omega_Vector[2];//-z
   Update_Matrix[0][2]=G_Dt*Omega_Vector[1];//y
   Update_Matrix[1][0]=G_Dt*Omega_Vector[2];//z
-  Update_Matrix[1][1]=0;
+  Update_Matrix[1][1]=0f;
   Update_Matrix[1][2]=-G_Dt*Omega_Vector[0];//-x
   Update_Matrix[2][0]=-G_Dt*Omega_Vector[1];//-y
   Update_Matrix[2][1]=G_Dt*Omega_Vector[0];//x
-  Update_Matrix[2][2]=0;
-#else                    // Uncorrected data (no drift correction)
-  Update_Matrix[0][0]=0;
+  Update_Matrix[2][2]=0f;
+#else // OUTPUTMODE == 0|1
+  // Uncorrected data (no drift correction)
+  Update_Matrix[0][0]=0f;
   Update_Matrix[0][1]=-G_Dt*ahrs_float.imu_rate.r;//-z
   Update_Matrix[0][2]=G_Dt*ahrs_float.imu_rate.q;//y
   Update_Matrix[1][0]=G_Dt*ahrs_float.imu_rate.r;//z
-  Update_Matrix[1][1]=0;
+  Update_Matrix[1][1]=0f;
   Update_Matrix[1][2]=-G_Dt*ahrs_float.imu_rate.p;
   Update_Matrix[2][0]=-G_Dt*ahrs_float.imu_rate.q;
   Update_Matrix[2][1]=G_Dt*ahrs_float.imu_rate.p;
-  Update_Matrix[2][2]=0;
+  Update_Matrix[2][2]=0f;
 #endif
 
   Matrix_Multiply(DCM_Matrix,Update_Matrix,Temporary_Matrix); //a*b=c
 
-  for(int y=0; y<3; y++) //Matrix Addition (update)
-    {
-      for(int x=0; x<3; x++)
-	{
-	  DCM_Matrix[y][x]+=Temporary_Matrix[y][x];
-	}
+  //Matrix Addition (update)
+  for(int y=0; y<3; y++) {
+    for(int x=0; x<3; x++) {
+      DCM_Matrix[y][x] += Temporary_Matrix[y][x];
     }
+  }
 }
 
 void Euler_angles(void)
