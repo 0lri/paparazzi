@@ -448,12 +448,27 @@ void periodic_task_ap( void ) {
     float time = GET_CUR_TIME_FLOAT();
     time *= 1000;//secs to msecs
 
+    // fake mag with neutral values
+    imu.mag.x = imu.accel_neutral.x;
+    imu.mag.y = imu.accel_neutral.y;
+    imu.mag.z = imu.accel_neutral.z;
+
+    // fake mag with gyro_bias values
+    imu.mag.x = ahrs_impl.gyro_bias.p;
+    imu.mag.y = ahrs_impl.gyro_bias.q;
+    imu.mag.z = ahrs_impl.gyro_bias.r;
+    
     DOWNLINK_SEND_HB_FILTER( DefaultChannel,&time,
-			     &imu.accel.x,&imu.accel.y,&imu.accel.z,
 			     &imu.gyro.p,&imu.gyro.q,&imu.gyro.r,
+			     &imu.accel.x,&imu.accel.y,&imu.accel.z,
 			     &ff, /* hmc_mag_h */
 			     &imu.mag.x,&imu.mag.y,&imu.mag.z,
-			     &ff, &ff, &ff, &ff, &ff );
+/*			     &ahrs_impl.gyro_bias.p,
+			     &ahrs_impl.gyro_bias.q,
+			     &ahrs_impl.gyro_bias.r,
+*/
+			     &accel_float.x, &accel_float.y, &accel_float.z,
+			     &ff, &ff );
     /*
 			     &angle[ANG_ROLL],&angle[ANG_PITCH],&angle[ANG_YAW],
 			     &estimator_ir_phi, &estimator_ir_theta );

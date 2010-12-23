@@ -29,7 +29,7 @@
 
 struct AhrsAligner ahrs_aligner;
 
-#define SAMPLES_NB 512
+#define SAMPLES_NB 128 // olri 512
 static struct Int32Rates gyro_sum;
 static struct Int32Vect3 accel_sum;
 static struct Int32Vect3 mag_sum;

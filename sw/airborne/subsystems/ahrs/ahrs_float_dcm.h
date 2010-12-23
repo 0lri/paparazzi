@@ -4,7 +4,8 @@
  * 2010 The Paparazzi Team
  *
  *
- * Based on Code by Jordi Munoz and William Premerlani, Supported by Chris Anderson (Wired) and Nathan Sindle (SparkFun).
+ * Based on Code by Jordi Munoz and William Premerlani,
+ * Supported by Chris Anderson (Wired) and Nathan Sindle (SparkFun).
  * Version 1.0 for flat board updated by Doug Weibel and Jose Julio
  *
  * Modified at Hochschule Bremen, Germany
@@ -14,7 +15,8 @@
 
 /** \file ahrs_float_dcm.h
  *  \brief Attitude estimation for fixedwings based on the DCM
- *  Theory: http://code.google.com/p/gentlenav/downloads/list  file DCMDraft2.pdf
+ *  Theory: http://code.google.com/p/gentlenav/downloads/list
+ *  File:   DCMDraft2.pdf
  *
  */
 
@@ -36,6 +38,7 @@ struct AhrsFloatDCM {
   struct FloatRMat body_to_imu_rmat;
 };
 extern struct AhrsFloatDCM ahrs_impl;
+extern struct FloatVect3 accel_float; // olri
 
 extern float imu_roll_neutral;
 extern float imu_pitch_neutral;
@@ -50,9 +53,9 @@ void ahrs_update_fw_estimator(void);
 #define Kp_YAW 1.2          //High yaw drift correction gain - use with caution!
 #define Ki_YAW 0.00005
 
-#define GRAVITY 9.81
+#define GRAVITY 9.81f
 
-#define OUTPUTMODE 0
+#define OUTPUTMODE 2
 #warning OUTPUTMODE 0
 // Mode 0 = DCM integration without Ki gyro bias
 // Mode 1 = DCM integration with Kp and Ki (with drift correction)
