@@ -400,26 +400,26 @@ void Matrix_update(void)
 
 #if OUTPUTMODE==1
   // With corrected data (drift correction)
-  Update_Matrix[0][0]=0f;
+  Update_Matrix[0][0]=0.f;
   Update_Matrix[0][1]=-G_Dt*Omega_Vector[2];//-z
   Update_Matrix[0][2]=G_Dt*Omega_Vector[1];//y
   Update_Matrix[1][0]=G_Dt*Omega_Vector[2];//z
-  Update_Matrix[1][1]=0f;
+  Update_Matrix[1][1]=0.f;
   Update_Matrix[1][2]=-G_Dt*Omega_Vector[0];//-x
   Update_Matrix[2][0]=-G_Dt*Omega_Vector[1];//-y
   Update_Matrix[2][1]=G_Dt*Omega_Vector[0];//x
-  Update_Matrix[2][2]=0f;
+  Update_Matrix[2][2]=0.f;
 #else // OUTPUTMODE == 0|1
   // Uncorrected data (no drift correction)
-  Update_Matrix[0][0]=0f;
+  Update_Matrix[0][0]=0.f;
   Update_Matrix[0][1]=-G_Dt*ahrs_float.imu_rate.r;//-z
   Update_Matrix[0][2]=G_Dt*ahrs_float.imu_rate.q;//y
   Update_Matrix[1][0]=G_Dt*ahrs_float.imu_rate.r;//z
-  Update_Matrix[1][1]=0f;
+  Update_Matrix[1][1]=0.f;
   Update_Matrix[1][2]=-G_Dt*ahrs_float.imu_rate.p;
   Update_Matrix[2][0]=-G_Dt*ahrs_float.imu_rate.q;
   Update_Matrix[2][1]=G_Dt*ahrs_float.imu_rate.p;
-  Update_Matrix[2][2]=0f;
+  Update_Matrix[2][2]=0.f;
 #endif
 
   Matrix_Multiply(DCM_Matrix,Update_Matrix,Temporary_Matrix); //a*b=c
