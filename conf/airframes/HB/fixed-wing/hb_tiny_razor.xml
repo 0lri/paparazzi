@@ -37,9 +37,9 @@
   </command_laws>
 
   <section name="IMU" prefix="IMU_">
-    <define name="GYRO_P_NEUTRAL" value="(381-7)"/> <!-- SoA = 1.23V + 3.33mV * [+/-][0-300]grad/s -->
-    <define name="GYRO_Q_NEUTRAL" value="(381-12)"/>
-    <define name="GYRO_R_NEUTRAL" value="(381)"/>
+    <define name="GYRO_P_NEUTRAL" value="(381-8)"/> <!-- SoA = 1.23V + 3.33mV * [+/-][0-300]grad/s -->
+    <define name="GYRO_Q_NEUTRAL" value="(381-13)"/>
+    <define name="GYRO_R_NEUTRAL" value="(381-1)"/>
 
     <define name="GYRO_P_SENS" value="4096" integer="16"/> <!-- * (1 << (INT32_RATE_FRAC = 12)) / 61.3588-->
     <define name="GYRO_Q_SENS" value="4096" integer="16"/> <!-- * (1 << (INT32_RATE_FRAC = 12)) / 57.96 -->

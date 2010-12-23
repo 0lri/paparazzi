@@ -53,18 +53,19 @@ float imu_pitch_neutral = RadOfDeg(IMU_PITCH_NEUTRAL_DEFAULT);
 // Positive yaw   : clockwise
 
 // DCM Working variables
-float G_Dt=0.05;
+float G_Dt=0.05f; // 20Hz
 
 struct FloatVect3 accel_float = {0.f,0.f,0.f};
 
-float Omega_Vector[3]= {0,0,0}; //Corrected Gyro_Vector data
-float Omega_P[3]= {0,0,0};		//Omega Proportional correction
-float Omega_I[3]= {0,0,0};		//Omega Integrator
-float Omega[3]= {0,0,0};
+float Omega_Vector[3]= {0.f,0.f,0.f}; //Corrected Gyro_Vector data
+float Omega_P[3]= {0.f,0.f,0.f};		//Omega Proportional correction
+float Omega_I[3]= {0.f,0.f,0.f};		//Omega Integrator
+float Omega[3]= {0.f,0.f,0.f};
 
-float DCM_Matrix[3][3]       = {{1,0,0},{0,1,0},{0,0,1}};
-float Update_Matrix[3][3]    = {{0,1,2},{3,4,5},{6,7,8}}; //Gyros here
-float Temporary_Matrix[3][3] = {{0,0,0},{0,0,0},{0,0,0}};
+float DCM_Matrix[3][3]       = {{1.f,0.f,0.f},{0.f,1.f,0.f},{0.f,0.f,1.f}};
+//Gyros here
+float Update_Matrix[3][3]    = {{0.f,1.f,2.f},{3.f,4.f,5.f},{6.f,7.f,8.f}};
+float Temporary_Matrix[3][3] = {{0.f,0.f,0.f},{0.f,0.f,0.f},{0.f,0.f,0.f}};
 
 #ifdef USE_MAGNETOMETER
 float MAG_Heading;
