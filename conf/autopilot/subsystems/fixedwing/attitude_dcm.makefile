@@ -1,7 +1,10 @@
 # attitude estimation for fixedwings via dcm algorithm
 
 
+$(TARGET).CFLAGS += -DAHRS_TYPE_H=\"subsystems/ahrs/ahrs_float_dcm.h\"
+
 ifeq ($(ARCH), lpc21)
+
 ap.CFLAGS += -DUSE_ANALOG_IMU
 ap.CFLAGS += -DAHRS_ALIGNER_LED=$(AHRS_ALIGNER_LED)
 
@@ -22,7 +25,7 @@ sim.CFLAGS += -DUSE_INFRARED
 sim.srcs += subsystems/sensors/infrared.c
 
 sim.srcs += $(SRC_ARCH)/sim_ir.c
-sim.srcs += $(SRC_ARCH)/sim_analogimu.c
+sim.srcs += $(SRC_ARCH)/sim_imu.c
 
 endif
 

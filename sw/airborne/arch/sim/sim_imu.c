@@ -10,5 +10,5 @@
 #include "generated/airframe.h"
 #include <caml/mlvalues.h>
 
-float imu_roll_neutral = RadOfDeg(IMU_ROLL_NEUTRAL_DEFAULT);
-float imu_pitch_neutral = RadOfDeg(IMU_PITCH_NEUTRAL_DEFAULT);
+float ins_roll_neutral  = INS_ROLL_NEUTRAL_DEFAULT;
+float ins_pitch_neutral = INS_PITCH_NEUTRAL_DEFAULT;
