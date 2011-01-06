@@ -79,6 +79,7 @@
 # /sw/simulator/
 /sw/simulator/gaia
 /sw/simulator/simhitl
+/sw/simulator/launchsitl
 
 # /sw/supervision/
 /sw/supervision/gtk_process.ml
