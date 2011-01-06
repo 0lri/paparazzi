@@ -161,7 +161,7 @@ void ahrs_propagate(void)
   /* unbias rate measurement */
   RATES_DIFF(ahrs_float.imu_rate, gyro_float, ahrs_impl.gyro_bias);
 
-  // scale adc raw to [rad/s] // olri
+  // scale gyro adc raw to [rad/s] FIXME // olri
   ahrs_float.imu_rate.p /= 61.35f;
   ahrs_float.imu_rate.q /= 57.96f;
   ahrs_float.imu_rate.r /= 60.10f;
@@ -179,7 +179,7 @@ void ahrs_update_accel(void)
 {
   ACCELS_FLOAT_OF_BFP(accel_float, imu.accel);
 
-  // scale adc raw to [m/s-2] // olri
+  // scale accel adc raw to [m/s-2] FIXME // olri
   accel_float.x /= 10.19f;
   accel_float.y /= 10.5f;
   accel_float.z /= 10.4f;
@@ -188,9 +188,9 @@ void ahrs_update_accel(void)
   // Remove centrifugal acceleration.
   if (gps_mode==3) {
     // Centrifugal force on Acc_y = GPS_speed*GyroZ
-    accel_float.y += gps_speed_3d/100. * Omega[2];
+    accel_float.y += gps_speed_3d/100.f * Omega[2];
     // Centrifugal force on Acc_z = GPS_speed*GyroY
-    accel_float.z -= gps_speed_3d/100. * Omega[1];
+    accel_float.z -= gps_speed_3d/100.f * Omega[1];
   }
 #endif
 
@@ -204,9 +204,9 @@ void ahrs_update_mag(void)
 
 void Normalize(void)
 {
-  float error=0.;
+  float error=0.f;
   float temporary[3][3];
-  float renorm=0.;
+  float renorm=0.f;
   boolean problem=FALSE;
 
   // Find the non-orthogonality of X wrt Y
