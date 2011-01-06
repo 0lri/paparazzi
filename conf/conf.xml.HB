@@ -136,7 +136,7 @@
    radio="radios/HB/mx12-HB_MINI.xml"
    telemetry="telemetry/default.xml"
    flight_plan="flight_plans/HB/hochschule.xml"
-   settings="settings/tuning_analog_imu.xml"
+   settings=" settings/tuning_imu.xml"
    gui_color="white"
   />
   <aircraft
