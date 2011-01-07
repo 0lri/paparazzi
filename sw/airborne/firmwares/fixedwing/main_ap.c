@@ -446,29 +446,27 @@ void periodic_task_ap( void ) {
   if (!_20Hz) {
     imu_periodic();
     // fake
-    float ff = 47.11;
+    float ff = 47.11f;
     float time = GET_CUR_TIME_FLOAT();
-    time *= 1000;//secs to msecs
+    time *= 1000.f;//secs to msecs
 
-    // fake mag with neutral values
+    // fake mag with accel neutral values
     imu.mag.x = imu.accel_neutral.x;
     imu.mag.y = imu.accel_neutral.y;
     imu.mag.z = imu.accel_neutral.z;
 
-    // fake mag with gyro_bias values
-    imu.mag.x = ahrs_impl.gyro_bias.p;
-    imu.mag.y = ahrs_impl.gyro_bias.q;
-    imu.mag.z = ahrs_impl.gyro_bias.r;
+    // fake mag with gyro_bias (float) values
+/*
+    imu.mag.x = ahrs_impl.gyro_bias.p*1e+6;
+    imu.mag.y = ahrs_impl.gyro_bias.q*1e+6;
+    imu.mag.z = ahrs_impl.gyro_bias.r*1e+6;
+*/
     
     DOWNLINK_SEND_HB_FILTER( DefaultChannel,&time,
 			     &imu.gyro.p,&imu.gyro.q,&imu.gyro.r,
 			     &imu.accel.x,&imu.accel.y,&imu.accel.z,
 			     &ff, /* hmc_mag_h */
 			     &imu.mag.x,&imu.mag.y,&imu.mag.z,
-/*			     &ahrs_impl.gyro_bias.p,
-			     &ahrs_impl.gyro_bias.q,
-			     &ahrs_impl.gyro_bias.r,
-*/
 			     &accel_float.x, &accel_float.y, &accel_float.z,
 			     &ff, &ff );
     /*
