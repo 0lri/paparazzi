@@ -27,5 +27,7 @@ GPS_LED		= 2
 MODEM_UART_NR	= 0
 MODEM_BAUD	= B38400
 
+AHRS_ALIGNER_LED=2
+
 # All targets on the TINY board run on the same processor achitecture
 $(TARGET).ARCHDIR = $(ARCH)

@@ -94,7 +94,7 @@
 
   <!-- settings for the Analog IMU -->
 
-  <section name="IMU" prefix="IMU_">
+  <section name="INS" prefix="INS_">
     <define name="ROLL_NEUTRAL_DEFAULT" value="0" unit="deg"/>
     <define name="PITCH_NEUTRAL_DEFAULT" value="0" unit="deg"/>
   </section>

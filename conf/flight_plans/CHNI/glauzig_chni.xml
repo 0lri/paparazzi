@@ -2,7 +2,7 @@
 
 <flight_plan alt="80" ground_alt="89" lat0="51.652294" lon0="11.988888" max_dist_from_home="200" name="Glauzig" qfu="270" security_height="60">
   <header>
-    #include "nav_line.h"
+    #include "subsystems/navigation/nav_line.h"
 </header>
   <waypoints>
     <waypoint alt="150.0" name="HOME" x="-183.7" y="3.3"/>

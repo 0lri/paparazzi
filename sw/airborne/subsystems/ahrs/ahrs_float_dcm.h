@@ -48,15 +48,14 @@ void ahrs_update_fw_estimator(void);
 // DCM Parameters
 
 //#define Kp_ROLLPITCH 0.2
-#define Kp_ROLLPITCH 0.015
-#define Ki_ROLLPITCH 0.000010
-#define Kp_YAW 1.2          //High yaw drift correction gain - use with caution!
-#define Ki_YAW 0.00005
+#define Kp_ROLLPITCH 0.015f
+#define Ki_ROLLPITCH 0.000010f
+#define Kp_YAW 1.2f          //High yaw drift correction gain - use with caution!
+#define Ki_YAW 0.00005f
 
-#define GRAVITY 9.81f
+#define GRAVITY 9.80665f
 
-#define OUTPUTMODE 1
-#warning OUTPUTMODE 0
+#define OUTPUTMODE 1 // FIXME better configured as AHRS_FLOAT_DCM_MODE in config
 // Mode 0 = DCM integration without Ki gyro bias
 // Mode 1 = DCM integration with Kp and Ki (with drift correction)
 // Mode 2 = direct accelerometer -> euler

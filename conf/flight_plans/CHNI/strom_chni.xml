@@ -2,7 +2,7 @@
 
 <flight_plan alt="80" ground_alt="9" lat0="53.091700" lon0="8.660311" max_dist_from_home="200" name="Strom" qfu="270" security_height="50">
   <header>
-    #include "nav_line.h"
+    #include "subsystems/navigation/nav_line.h"
 </header>
   <waypoints>
     <waypoint name="HOME" x="-17.7" y="-39.5"/>
