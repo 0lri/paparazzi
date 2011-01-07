@@ -50,9 +50,6 @@
         <dl_setting MAX="45" MIN="-45" STEP="0.1" VAR="imu_pitch_neutral" shortname="pitch neutral" module="subsystems/ahrs/ahrs_float_dcm" param="IMU_NEUTRAL_DEFAULT" unit="rad" alt_unit="deg" alt_unit_coef="57.3"/>
       </dl_settings>
 
-
-
-
       <dl_settings NAME="attitude">
         <dl_setting MAX="25000" MIN="000" STEP="250" VAR="h_ctl_roll_pgain" shortname="roll_pgain" module="stabilization/stabilization_attitude"/>
         <dl_setting MAX="1" MIN="0" STEP="0.05" VAR="h_ctl_roll_max_setpoint" shortname="max_roll" param="H_CTL_ROLL_MAX_SETPOINT"/>
