@@ -23,6 +23,8 @@ sim.CFLAGS += -DIR_PITCH_NEUTRAL_DEFAULT=0
 
 sim.CFLAGS += -DUSE_INFRARED
 sim.srcs += subsystems/sensors/infrared.c
+$(TARGET).srcs += subsystems/sensors/infrared_adc.c
+
 
 sim.srcs += $(SRC_ARCH)/sim_ir.c
 sim.srcs += $(SRC_ARCH)/sim_imu.c

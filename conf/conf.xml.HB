@@ -130,13 +130,23 @@
    gui_color="white"
   />
   <aircraft
+   name="HB_SAS"
+   ac_id="44"
+   airframe="airframes/HB/extra/hb_sas.xml"
+   radio="radios/HB/mc22-HB-D1.xml"
+   telemetry="telemetry/default.xml"
+   flight_plan="flight_plans/HB/hochschule.xml"
+   settings=" settings/HB/tuning_hsb_2.xml"
+   gui_color="white"
+  />
+  <aircraft
    name="HB_TINY_RAZOR"
    ac_id="47"
    airframe="airframes/HB/fixed-wing/hb_tiny_razor.xml"
    radio="radios/HB/mx12-HB_MINI.xml"
    telemetry="telemetry/default.xml"
    flight_plan="flight_plans/HB/hochschule.xml"
-   settings="settings/tuning_ins.xml"
+   settings=" settings/tuning_analog_imu.xml"
    gui_color="white"
   />
   <aircraft
@@ -158,16 +168,6 @@
    flight_plan="flight_plans/muret_demo_1.xml"
    settings="settings/basic.xml"
    gui_color="#ffffffffffff"
-  />
-  <aircraft
-   name="SAS"
-   ac_id="44"
-   airframe="airframes/HB/extra/SAS.xml"
-   radio="radios/HB/mc22-HB-D1.xml"
-   telemetry="telemetry/default.xml"
-   flight_plan="flight_plans/HB/hochschule.xml"
-   settings="settings/HB/tuning_hsb_2.xml"
-   gui_color="white"
   />
   <aircraft
    name="TWOG_CHNI"
