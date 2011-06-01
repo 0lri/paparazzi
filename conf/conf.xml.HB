@@ -150,6 +150,16 @@
    gui_color="white"
   />
   <aircraft
+   name="HB_TINY_RAZOR_LOGGER"
+   ac_id="48"
+   airframe="airframes/HB/fixed-wing/hb_tiny_razor.xml"
+   radio="radios/HB/mx12-HB_MINI.xml"
+   telemetry="telemetry/HB/withtimestamp.xml"
+   flight_plan="flight_plans/HB/hochschule.xml"
+   settings=" settings/tuning_analog_imu.xml"
+   gui_color="white"
+  />
+  <aircraft
    name="Lerche"
    ac_id="205"
    airframe="airframes/HB/fixed-wing/HB_Lerche.xml"

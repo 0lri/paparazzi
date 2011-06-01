@@ -3,7 +3,7 @@
 # $Id$
 #
 # HB_SAS Busca_Razor_40cm Busca_Razor_80cm TWOG_CHNI Lerche MJ5 Busca2
-for i in HB_TINY_RAZOR HB_MINI_FIXEDWING MJ5
+for i in HB_TINY_RAZOR HB_MINI_FIXEDWING MJ5 HB_TINY_RAZOR_LOGGER
 do
 	echo "###################### $i #######################"
 	(

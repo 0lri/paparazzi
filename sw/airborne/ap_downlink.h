@@ -50,7 +50,7 @@
 #if defined DOWNLINK
 #define Downlink(x) x
 #else
-#define Downlink(x) {}
+#define Downlink(x) {BUMM}
 #endif
 
 
@@ -221,5 +221,27 @@
 #include "firmwares/fixedwing/stabilization/stabilization_adaptive.h"
 #define PERIODIC_SEND_H_CTL_A(_chan) DOWNLINK_SEND_H_CTL_A(_chan, &h_ctl_roll_sum_err, &h_ctl_ref_roll_angle, &h_ctl_pitch_sum_err, &h_ctl_ref_pitch_angle)
 
+/* logging frequency in Hz */
+#define LOG_FREQ 10
+/* T0_CLK = PCLK / T0_PCLK_DIV (shall be 15MHz)
+   frequency = T0_CLK / LOG_FREQ (10kHz = 100micro seconds) */
+#define LOG_DIV ((PCLK / T0_PCLK_DIV) / LOG_FREQ)
+
+#define PERIODIC_SEND_TIME(_chan) Downlink({\
+    uint64_t clock; \
+    uint32_t clock_lsb; \
+    static uint32_t clock_lsb_last; \
+    static uint32_t clock_msb; \
+\
+    clock_lsb = T0TC; \
+\
+    if (clock_lsb < clock_lsb_last) clock_msb++; \
+    clock_lsb_last = clock_lsb; \
+\
+    clock = (((uint64_t)clock_msb << 32) | (uint64_t)clock_lsb) / LOG_DIV; \
+\
+    clock &= 0xFFFFFFFF; \
+DOWNLINK_SEND_TIME(_chan, &clock); })
+/* #define GET_CUR_TIME_FLOAT() ((float)cpu_time_sec + SEC_OF_SYS_TICS((float)cpu_time_ticks)) */
 
 #endif /* AP_DOWNLINK_H */
